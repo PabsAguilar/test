@@ -1,24 +1,9 @@
-apiVersion: scaffolder.backstage.io/v1beta3
-kind: Template
+apiVersion: backstage.io/v1alpha1
+kind: Resource
 metadata:
-  name: api-fd-create-start
-  title: API FD Create
-  description: Submit an API front door ticket to initiate the API design and onboarding process!
-  tags:
-    - experimental
-    - test
+  name: artists-db
+  description: Stores artist details
 spec:
-  owner: ArchE
-  templater: Pablo A.
-  type: service
-  path: '../../api-tools'
-    # these are the steps which are rendered in the frontend with the form input
- 
-
-  # here's the steps that are executed in series in the scaffolder backend
-  steps:
-    - id: fetch-base
-      name: Fetch Base
-      action: fetch:template
-      input:
-        url: ./apitool
+  type: database
+  owner: team-a
+  system: api-tools
