@@ -11,7 +11,7 @@ spec:
   owner: ArchE
   templater: Pablo A.
   type: service
-  path: '../api-tools'
+  path: '../../api-tools'
     # these are the steps which are rendered in the frontend with the form input
  
 
