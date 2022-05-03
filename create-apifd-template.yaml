@@ -6,7 +6,7 @@ metadata:
   description: Submit an API front door ticket to initiate the API design and onboarding process!
   tags:
     - experimental
-    - ArchitectureEnablement
+    - test
 spec:
   owner: ArchE
   templater: Pablo A.
