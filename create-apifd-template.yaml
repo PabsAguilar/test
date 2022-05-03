@@ -6,19 +6,19 @@ metadata:
   description: Submit an API front door ticket to initiate the API design and onboarding process!
   tags:
     - experimental
-    - Architecture enablement
+    - ArchitectureEnablement
 spec:
   owner: ArchE
   templater: Pablo A.
   type: service
-  path: "."
+  path: '/api-tools'
     # these are the steps which are rendered in the frontend with the form input
  
 
   # here's the steps that are executed in series in the scaffolder backend
-  steps:
-    - id: fetch-base
-      name: Fetch Base
-      action: fetch:template
-      input:
-        url: '/api-tools'
+  #steps:
+  #  - id: fetch-base
+  #    name: Fetch Base
+  #    action: fetch:template
+  #   input:
+  #      url: '/api-tools'
