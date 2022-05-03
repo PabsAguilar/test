@@ -11,7 +11,7 @@ spec:
   owner: ArchE
   templater: Pablo A.
   type: service
-  path: '.'
+  path: '../api-tools'
     # these are the steps which are rendered in the frontend with the form input
  
 
@@ -21,4 +21,4 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./template
+        url: ./apitool
