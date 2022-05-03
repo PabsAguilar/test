@@ -1,59 +1,19 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: test-starter-kit2
-  title: Example Starter Kit2
-  description: Create an example starter kit from Simplify Hub! 2
+  name: api-fd-create-start
+  title: API FD Create
+  description: Submit an API front door ticket to initiate the API design and onboarding process!
   tags:
     - experimental
-    - node
+    - Architecture enablement
 spec:
-  owner: PTT
-  templater: Nate Axcell
+  owner: ArchE
+  templater: Pablo A.
   type: service
   path: "."
     # these are the steps which are rendered in the frontend with the form input
-  parameters:
-    - title: Repo Info
-      required:
-        - name
-        - description
-        - owner
-        - businessUnit
-        - type
-      properties:
-        name:
-          title: Name
-          type: string
-          description: Unique name of the component/repo (no spaces)
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        description:
-          title: Description
-          type: string
-          description: What is this repo going to do?
-          ui:autofocus: true
-        owner:
-          title: Owner
-          type: string
-          description: Which team/user owns this repo?
-          ui:autofocus: true
-          ui:options:
-            allowedKinds:
-              -Group
-        businessUnit:
-          title: Business Unit
-          type: string
-          description: Which business unit does this belong to?
-        system: 
-          title: System Type
-          type: string
-          description: What overall system will this be a part of?
-        type:
-          title: Project Type
-          type: string
-          description: Is this an experiment or production?
+ 
 
   # here's the steps that are executed in series in the scaffolder backend
   steps:
@@ -61,51 +21,4 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./template
-        values:
-          name: ${{ parameters.name }}
-
-    - id: fetch-docs
-      name: Fetch Docs
-      action: fetch:plain
-      input:
-        targetPath: ./
-        url: https://github.com/tt
-
-    - id: catalog-write
-      name: Catalog Write
-      action: catalog:write
-      input: 
-        entity:
-          apiVersion: backstage.io/v1alpha1
-          kind: Component
-          metadata:
-            name: ${{ parameters.name }}
-            description: ${{ parameters.description }}
-            annotations:
-              github.com/project-slug: v/${{ parameters.name }}
-              backstage.io/techdocs-ref: dir:.
-            tags:
-              - ${{ parameters.businessUnit }}
-          spec:
-            type: service
-            lifecycle: ${{ parameters.type }}
-            owner: ${{ parameters.owner }}
-            system: ${{ parameters.system }}
-            
-    - id: publish
-      name: Publish
-      action: publish:github
-      input:
-        allowedHosts: ['github.com']
-        description: This is ${{ parameters.name }}
-        access: v/v
-        repoUrl: github.com?owner=v&repo=${{ parameters.name }}
-        repoVisibility: internal
-
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: '/catalog-info.yaml'
+        url: '/api-tools'
